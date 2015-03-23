@@ -66,22 +66,6 @@ cookbook_file '/var/www/vhosts/lampbox/cgi-bin/fcgid-wrapper' do
   notifies :restart, 'service[apache2]', :delayed
 end
 
-remote_file '/var/www/vhosts/lampbox/httpdocs/adminer.php' do
-  source 'http://downloads.sourceforge.net/adminer/adminer-4.2.1-mysql-en.php'
-  mode  0644
-  owner 'vagrant'
-  group 'vagrant'
-  action :create
-end
-
-remote_file '/var/www/vhosts/lampbox/httpdocs/adminer.css' do
-  source 'https://raw.github.com/vrana/adminer/master/designs/pappu687/adminer.css'
-  mode  0644
-  owner 'vagrant'
-  group 'vagrant'
-  action :create
-end
-
 apache_module 'suexec' do
   enable true
 end
