@@ -27,6 +27,13 @@ mysql_database_user 'lampbox' do
   action :create
 end
 
+mysql_database_user 'lampbox' do
+  connection mysql_connection_info
+  database_name 'lampbox'
+  privileges [:all]
+  action :grant
+end
+
 %w[apache2-suexec php5-mysql].each do |p|
   package p
 end
