@@ -11,10 +11,10 @@ Requirements
 
 Usage
 -----
-* To start, run `vagrant up`
-* To SSH to the instance, Run `vagrant ssh`
-* You can access database via `http://192.168.100.100/adminer.php`
-* lampbox/httpdocs is the root directory of your website and this directory will be synchronized with VM.
+* To start a vagrant instance, run `vagrant up`
+* To SSH to the vagrant instance, run `vagrant ssh`
+* To access database via web UI, access `http://192.168.100.100/adminer.php`
+* Your local `httpdocs` is the document root and will be synchronized with `/var/www/vhosts/lampbox/httpdocs` in vagrant instance.
 
 | Key               | Value           |
 | ----------------- | --------------- |
