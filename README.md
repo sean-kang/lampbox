@@ -13,7 +13,8 @@ Usage
 -----
 * To start, run `vagrant up`
 * To SSH to the instance, Run `vagrant ssh`
-* You can also access database via `http://192.168.100.100/adminer.php`
+* You can access database via `http://192.168.100.100/adminer.php`
+* lampbox/httpdocs is the root directory of your website and this directory will be synchronized with VM.
 
 | Key               | Value           |
 | ----------------- | --------------- |
