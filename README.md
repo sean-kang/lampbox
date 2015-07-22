@@ -2,9 +2,25 @@ Lampbox Cookbook
 ================
 This cookbook launches a LAMP stack in vagrant instance.
 
+Requirements
+------------
+VirtualBox
+Vagrant
+Vagrant berkshelf plugin - to handle cookbook dependencies
+ChefDK - for berkshelf
+
 Usage
 -----
-Just run `vagrant up`
+Run `vagrant up`
+
+To SSH to the vagrant instance, Run `vagrant ssh`
+
+VM IP address: 192.168.100.100
+
+|-------------------|---------|
+| Database name     | lampbox |
+| Database user     | lampbox |
+| Database password | lampbox |
 
 License and Authors
 -------------------
