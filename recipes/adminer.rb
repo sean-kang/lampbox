@@ -1,7 +1,14 @@
 # Cookbook Name:: lampbox
 # Recipe:: adminer
 
-remote_file '/var/www/vhosts/lampbox/httpdocs/adminer.php' do
+directory node['lampbox']['adminer_folder'] do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  recursive true
+end
+
+remote_file "#{node['lampbox']['adminer_folder']}/adminer.php" do
   source node.default['lampbox']['adminer_source']
   mode  0644
   owner 'vagrant'
@@ -9,7 +16,7 @@ remote_file '/var/www/vhosts/lampbox/httpdocs/adminer.php' do
   action :create
 end
 
-remote_file '/var/www/vhosts/lampbox/httpdocs/adminer.css' do
+remote_file "#{node['lampbox']['adminer_folder']}/adminer.css" do
   source node.default['lampbox']['adminer_css_source']
   mode  0644
   owner 'vagrant'
