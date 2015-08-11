@@ -10,6 +10,8 @@ include_recipe 'apache2::mod_fcgid'
 include_recipe 'mysql::server'
 include_recipe 'mysql2_chef_gem'
 
+document_root = node['lampbox']['document_root']
+
 mysql_connection_info = {
   :host     => 'localhost',
   :username => 'root',
@@ -36,7 +38,7 @@ end
 
 package 'apache2-suexec'
 
-%w[/var/www/vhosts/lampbox/cgi-bin /var/www/vhosts/lampbox/httpdocs].each do |path|
+["/var/www/vhosts/lampbox/cgi-bin", "#{document_root}"].each do |path|
   directory path do
     owner 'vagrant'
     group 'vagrant'
@@ -46,11 +48,14 @@ package 'apache2-suexec'
   end
 end
 
-cookbook_file '/etc/apache2/sites-available/lampbox.conf' do
+template '/etc/apache2/sites-available/lampbox.conf' do
   source case node['platform']
     when 'ubuntu'
-      'lampbox-ubuntu.conf'
+      'lampbox-ubuntu.conf.erb'
   end
+  variables({
+    :document_root => document_root
+  })
   action :create
   notifies :restart, 'service[apache2]', :delayed
 end

@@ -1,4 +1,3 @@
-# 
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 # 
@@ -16,5 +15,10 @@ Vagrant.configure(2) do |config|
       'recipe[lampbox]',
       'recipe[lampbox::adminer]'
     ]
+    chef.json = {
+      :lampbox => {
+        :document_root => '/var/www/vhosts/lampbox/httpdocs'
+      }
+    }
   end
 end

@@ -1,11 +1,11 @@
 <VirtualHost *:80>
-  DocumentRoot /var/www/vhosts/lampbox/httpdocs/
+  DocumentRoot <%= @document_root %>/
   ServerName lampbox
   <IfModule mod_suexec.c>
     SuexecUserGroup vagrant vagrant
   </IfModule>
 
-  <Directory /var/www/vhosts/lampbox/httpdocs>
+  <Directory <%= @document_root %>>
     Require all granted
     <IfModule mod_fcgid.c>
       <Files ~ (\.php$)>
@@ -40,13 +40,13 @@
   SSLEngine on
   SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
   SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-  DocumentRoot /var/www/vhosts/lampbox/httpdocs/
+  DocumentRoot <%= @document_root %>/
   ServerName lampbox
   <IfModule mod_suexec.c>
     SuexecUserGroup vagrant vagrant
   </IfModule>
 
-  <Directory /var/www/vhosts/lampbox/httpdocs>
+  <Directory <%= @document_root %>>
     Require all granted
     <IfModule mod_fcgid.c>
       <Files ~ (\.php$)>
