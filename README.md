@@ -13,7 +13,7 @@ Usage
 -----
 * To start a vagrant instance, run `vagrant up`
 * To SSH to the vagrant instance, run `vagrant ssh`
-* To access database via web UI, access `http://192.168.100.100/adminer.php`
+* To access database via web UI, access `http://192.168.100.100/adminer`
 * Your local `httpdocs` is the document root and will be synchronized with `/var/www/vhosts/lampbox/httpdocs` in vagrant instance.
 
 | Key               | Value           |
