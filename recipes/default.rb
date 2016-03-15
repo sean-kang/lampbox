@@ -1,6 +1,7 @@
 # Cookbook Name:: lampbox
 # Recipe:: default
 
+include_recipe 'apt'
 include_recipe 'lampbox::php'
 include_recipe 'apache2'
 include_recipe 'apache2::mod_ssl'

@@ -6,6 +6,7 @@ description      'Installs/Configures lampbox'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.1'
 
+depends 'apt'
 depends 'apache2', '~> 3.0.1'
 depends 'mysql', '< 6.0'
 depends 'php', '~> 1.5.0'
